@@ -19,3 +19,8 @@ variable "notes" {
   description = "The type of resource to create in Azure (e.g. 'aks/vms')."
 }
 
+
+variable "lock_level" {
+  type        = string
+  description = "The type of resource to create in Azure (e.g. 'aks/vms')."
+}
