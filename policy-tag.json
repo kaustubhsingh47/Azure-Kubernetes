@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "displayName": "CreatedTime Tag Policy",
+    "policyType": "BuiltIn",
+    "description": "Enforces tagging with the CreatedTime property.",
+    "metadata": {
+      "category": "Tags"
+    },
+    "mode": "Indexed",
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "field": "tags['CreatedTime']",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+
+# Run the following Azure CLI command to create the tag policy:
+# az policy definition create --name created-time-tag-policy --rules tag-policy.json --mode indexed
