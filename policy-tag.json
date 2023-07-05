@@ -20,5 +20,5 @@
   }
 }
 
-# Run the following Azure CLI command to create the tag policy:
-# az policy definition create --name created-time-tag-policy --rules tag-policy.json --mode indexed
+// Run the following Azure CLI command to create the tag policy:
+// az policy definition create --name created-time-tag-policy --rules tag-policy.json --mode indexed
