@@ -1,5 +1,0 @@
-rg_name       = "test_rg_cppe_2610"
-location      = "eastus"
-lock_name     = "delete_protection_cppe_2610"
-lock_level    = "CanNotDelete"
-notes         = "Locked because it's needed by a third-party"
