@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "WorkloadName Policy",
+    "description": "Enforces the presence of the WorkloadName attribute on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "tags['WorkloadName']",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
