@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "BusinessUnit Policy",
+    "description": "Enforces the presence of the BusinessUnit tag on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "tags['BusinessUnit']",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
