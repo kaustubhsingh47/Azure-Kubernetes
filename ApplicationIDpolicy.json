@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "ApplicationID Policy",
+    "description": "Enforces the presence of the ApplicationID attribute on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "identity.applicationId",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
