@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "Environment Policy",
+    "description": "Enforces the presence of the Environment attribute on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "tags['Environment']",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
