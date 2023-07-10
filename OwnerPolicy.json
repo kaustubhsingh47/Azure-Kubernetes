@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "Owner Policy",
+    "description": "Enforces the presence of the Owner attribute on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "tags['Owner']",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
