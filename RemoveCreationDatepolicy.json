@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "displayName": "Remove Creation Date Policy",
+    "description": "Enforces the removal of the CreationDate attribute on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "field": "tags['CreationDate']",
+        "exists": "true"
+      },
+      "then": {
+        "effect": "modify",
+        "details": {
+          "operations": [
+            {
+              "operation": "remove",
+              "field": "tags['CreationDate']"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

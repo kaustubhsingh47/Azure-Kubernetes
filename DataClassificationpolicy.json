@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "Data Classification Policy",
+    "description": "Enforces the presence of data classification on resources",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "tags['DataClassification']",
+          "exists": "true"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
