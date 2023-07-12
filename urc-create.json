@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "displayName": "Enforce Create Date Tag with UTC Time",
+    "description": "Enforces the 'createdate' tag with UTC time on resources",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "metadata": {
+      "category": "Tags"
+    },
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+          },
+          {
+            "field": "tags['createdate']",
+            "exists": "false"
+          },
+          {
+            "field": "location",
+            "equals": "global"
+          },
+          {
+            "field": "Microsoft.Resources/subscriptions/resourceGroups/creationTime",
+            "greaterOrEquals": "[utcNow()]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
