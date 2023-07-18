@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "TFE Workspace Name Policy",
+    "description": "Enforces naming conventions for Terraform Enterprise (TFE) workspaces",
+    "mode": "Indexed",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "name",
+          "match": "^[a-zA-Z][a-zA-Z0-9_-]{2,}$"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
