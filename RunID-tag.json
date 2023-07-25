@@ -1,0 +1,45 @@
+{
+"name": "mk562a88-m324-g3r2-q56h-6g9821jhs53",
+"displayName": "RunID tag",
+"policyType": "Custom",
+"mode": "All",
+"description": "Require that resources are tagged with a RunID",
+"metadata": {
+    "version": "1.0.0",
+    "category": "Tags"
+},
+"parameters":  {
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant"
+    },
+    "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}, 
+"policyRule": {
+  "if": {
+    "not": {
+      "allof": [
+        {
+          "field": "tags['RunID']",
+          "exist": "true"
+        },
+        {
+          "field": "tags['RunID']",
+          "notMatch": ""
+        }
+      ]
+    }
+  },
+      "then": {
+        "effect": "[parameters('effect')]"
+       }
+      }
+    }
