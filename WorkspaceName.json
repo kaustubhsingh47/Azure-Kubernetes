@@ -1,0 +1,45 @@
+{
+"name": "plth84ss-ut87-44ss-ess5-tuyy5461t2y",
+"displayName": "WorkspaceName tag",
+"policyType": "Custom",
+"mode": "All",
+"description": "Require that resources are tagged with a WorkspaceName",
+"metadata": {
+    "version": "1.0.0",
+    "category": "Tags"
+},
+"parameters":  {
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant"
+    },
+    "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}, 
+"policyRule": {
+  "if": {
+    "not": {
+      "allof": [
+        {
+          "field": "tags['WorkspaceName']",
+          "exist": "true"
+        },
+        {
+          "field": "tags['WorkspaceName']",
+          "notMatch": ""
+        }
+      ]
+    }
+  },
+      "then": {
+        "effect": "[parameters('effect')]"
+       }
+      }
+    }
