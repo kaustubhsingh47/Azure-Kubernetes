@@ -1,0 +1,45 @@
+{
+"name": "lk96wdx3-pl45-66dd-er87-qfg835dfy95",
+"displayName": "UniqueName tag",
+"policyType": "Custom",
+"mode": "All",
+"description": "Require that resources are tagged with a UniqueName",
+"metadata": {
+    "version": "1.0.0",
+    "category": "Tags"
+},
+"parameters":  {
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant"
+    },
+    "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}, 
+"policyRule": {
+  "if": {
+    "not": {
+      "allof": [
+        {
+          "field": "tags['UniqueName']",
+          "exist": "true"
+        },
+        {
+          "field": "tags['UniqueName']",
+          "notMatch": ""
+        }
+      ]
+    }
+  },
+      "then": {
+        "effect": "[parameters('effect')]"
+       }
+      }
+    }
