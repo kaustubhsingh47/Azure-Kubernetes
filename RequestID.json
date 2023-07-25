@@ -1,0 +1,45 @@
+{
+"name": "kcr5st83-do1q-fhv6-sd45-jf45or348qq",
+"displayName": "RequestID tag",
+"policyType": "Custom",
+"mode": "All",
+"description": "Require that resources are tagged with a RequestID",
+"metadata": {
+    "version": "1.0.0",
+    "category": "Tags"
+},
+"parameters":  {
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant"
+    },
+    "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}, 
+"policyRule": {
+  "if": {
+    "not": {
+      "allof": [
+        {
+          "field": "tags['RequestID']",
+          "exist": "true"
+        },
+        {
+          "field": "tags['RequestID']",
+          "notMatch": ""
+        }
+      ]
+    }
+  },
+      "then": {
+        "effect": "[parameters('effect')]"
+       }
+      }
+    }
