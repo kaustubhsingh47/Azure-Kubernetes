@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--vsnecphfg5zgjzyopocws1",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/4bf4c413-dc17-472b-8ae1-989810cb0004/resourceGroups/krmyg-aiml/providers/Microsoft.Synapse/workspaces/vsnecphfg5zgjzyopocws1",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"vsnecphfg5zgjzyopocws1-ondemand.84a86686-bceb-4bae-80b7-02555af0c3eb.sql.azuresynapse.net"
+		]
+	}
+}
